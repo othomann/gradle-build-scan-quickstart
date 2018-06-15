@@ -3,7 +3,13 @@ plugins {
 }
 
 repositories {
-    jcenter()
+    maven {
+        url System.getenv('MAVEN_MIRROR_URL')
+        credentials {
+            username System.getenv('MAVEN_USER_ID')
+            password System.getenv('MAVEN_TOKEN')
+        }
+    }
 }
 
 dependencies {
